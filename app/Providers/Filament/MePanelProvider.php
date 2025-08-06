@@ -2,6 +2,7 @@
 
 namespace App\Providers\Filament;
 
+use Filament\FontProviders\GoogleFontProvider;
 use Filament\Http\Middleware\Authenticate;
 use Filament\Http\Middleware\AuthenticateSession;
 use Filament\Http\Middleware\DisableBladeIconComponents;
@@ -27,8 +28,14 @@ class MePanelProvider extends PanelProvider
             ->id('me')
             ->path('me')
             ->colors([
-                'primary' => Color::Amber,
+                'primary' => Color::Pink,
             ])
+            ->login()
+            ->font(
+                family: 'Karla',
+                provider: GoogleFontProvider::class
+            )
+            ->default()
             ->discoverResources(in: app_path('Filament/Me/Resources'), for: 'App\Filament\Me\Resources')
             ->discoverPages(in: app_path('Filament/Me/Pages'), for: 'App\Filament\Me\Pages')
             ->pages([
