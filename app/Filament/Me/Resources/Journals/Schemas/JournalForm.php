@@ -17,8 +17,7 @@ class JournalForm
             ->components([
                 Group::make()
                     ->columnSpanFull()
-                    ->columns(1)
-                    ->inlineLabel()
+                    ->columns(2)
                     ->schema([
                         DatePicker::make('date')
                             ->required()
@@ -30,6 +29,7 @@ class JournalForm
                             ->options(fn() => Mood::all()->pluck('name', 'id'))
                             ->searchable(),
                         RichEditor::make('story')
+                            ->columnSpanFull()
                             ->required()
                     ])
             ]);

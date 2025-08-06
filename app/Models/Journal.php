@@ -8,4 +8,9 @@ use Illuminate\Database\Eloquent\SoftDeletes;
 class Journal extends Model
 {
     use SoftDeletes;
+
+    public function mood()
+    {
+        return $this->belongsTo(Mood::class);
+    }
 }
